@@ -41,6 +41,9 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 			int setter=1;
 			for(i=0;i<30;i++)
 			{				
+				if(c[i] == '\0')
+				continue;
+				
 				if( (c[i]>='0') && (c[i]<='9') )
 				{
 					if(setter) //placing NULL at the right place
@@ -87,12 +90,14 @@ void inputExercise(HealthData* health_data) {
     printf("%i. %s (%i kcal burned per min.)\n", i+1, exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
 
     // ToCode: to enter the exercise to be chosen with exit option
-
- 
+    printf("%i. Exit\n", exercise_list_size+1);
+	printf("Choose (1-7) : ");
+	scanf("%d", choice);
     
     // To enter the duration of the exercise
     printf("Enter the duration of the exercise (in min.): ");
     scanf("%d", &duration);
+    
 
     // ToCode: to enter the selected exercise and total calcories burned in the health data
     
