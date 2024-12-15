@@ -34,11 +34,34 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while ( ) {
+	char c[MAX_EXERCISE_NAME_LEN];
+	
+	while ( (fgets(c,MAX_EXERCISE_NAME_LEN,file)) != NULL ) {	//read line by line
+			int i;
+			int setter=1;
+			for(i=0;i<30;i++)
+			{				
+				if( (c[i]>='0') && (c[i]<='9') )
+				{
+					if(setter) //placing NULL at the right place
+					{
+						exercise_list[exercise_list_size].exercise_name[i] = '\0';
+						setter = 0;
+					}
+					
+					if(exercise_list[exercise_list_size].calories_burned_per_minute == 0)
+					exercise_list[exercise_list_size].calories_burned_per_minute = (c[i]-'0'); //saving character of number as integer
+					else //if calories per min is a two digit number
+					exercise_list[exercise_list_size].calories_burned_per_minute = exercise_list[exercise_list_size].calories_burned_per_minute*10 + (c[i]-'0');
+				}
+				else //if not number, save as character in the name
+				exercise_list[exercise_list_size].exercise_name[i] = c[i]; //using i since the text file starts with the exercise name
+			}
     	
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
+		exercise_list_size++;
     }
 
     fclose(file);
@@ -60,7 +83,8 @@ void inputExercise(HealthData* health_data) {
     
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
-
+    for(i=0; i<exercise_list_size;i++)
+    printf("%i. %s (%i kcal burned per min.)\n", i+1, exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
 
     // ToCode: to enter the exercise to be chosen with exit option
 
