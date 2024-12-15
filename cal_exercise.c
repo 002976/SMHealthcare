@@ -63,7 +63,6 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 		}
 		exercise_list_size++;
     }
-    exercise_list[exercise_list_size].calories_burned_per_minute = exercise_list[exercise_list_size].calories_burned_per_minute % 10;
 
     fclose(file);
 }
