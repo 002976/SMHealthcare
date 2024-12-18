@@ -40,10 +40,7 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 			int i;
 			int setter=1;
 			for(i=0;i<30;i++)
-			{				
-				if(c[i] == '\0')
-				continue;
-				
+			{					
 				if( (c[i]>='0') && (c[i]<='9') )
 				{
 					if(setter) //placing NULL at the right place
@@ -91,8 +88,8 @@ void inputExercise(HealthData* health_data) {
 
     // ToCode: to enter the exercise to be chosen with exit option
     printf("%i. Exit\n", exercise_list_size+1);
-	printf("Choose (1-7) : ");
-	scanf("%d", choice);
+	printf("Choose (1-%i) : \n", exercise_list_size+2);
+	scanf("%i", &choice);
     
     // To enter the duration of the exercise
     printf("Enter the duration of the exercise (in min.): ");
