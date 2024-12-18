@@ -18,7 +18,7 @@
 
 
 // To declare the structure of the exercises
-static Exercise exercise_list[MAX_EXERCISES] = {0}; //added initializing process
+static Exercise exercise_list[MAX_EXERCISES];
 int exercise_list_size = 0;
 
 
@@ -34,36 +34,11 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    char c[MAX_EXERCISE_NAME_LEN]; //set string to receive data while reading file
-    
-    while ( fgets(c, MAX_EXERCISE_NAME_LEN, file) != NULL ) {
-    	int i;
-		int setter =1;
-		
-		for(i=0; i<MAX_EXERCISE_NAME_LEN; i++)
-		{
-			if( (c[i] >='0') && (c[i] <='9')) //if character is a number
-			{
-				if(setter) //end name of exercise with '\0' to prevent issues
-				{
-					exercise_list[exercise_list_size].exercise_name[i] = '\0';
-					setter = 0;
-				}
-				
-				if( exercise_list[exercise_list_size].calories_burned_per_minute == 0)
-				exercise_list[exercise_list_size].calories_burned_per_minute = (c[i]-'0');
-				else //if calories per minute is more than one digit long
-				exercise_list[exercise_list_size].calories_burned_per_minute = exercise_list[exercise_list_size].calories_burned_per_minute*10 + (c[i]-'0');
-			}
-			else //if character is not a number
-			exercise_list[exercise_list_size].exercise_name[i] = c[i];
-		}
-		    	
+    while ( ) {
+    	
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
-		
-		exercise_list_size++; //increase exercise list size to save number of exercise read
     }
 
     fclose(file);
@@ -85,15 +60,11 @@ void inputExercise(HealthData* health_data) {
     
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
-    for(i=0 ; i< exercise_list_size ; i++)
-    printf("%i. %s (%i kcal burned per min.)\n", i+1, exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
-    
-	
-	// ToCode: to enter the exercise to be chosen with exit option
-    printf("%i. Exit\n", exercise_list_size+1);
-    printf("Choose (1-%i) : ", exercise_list_size+1);
-    scanf("%i", &choice);
-    
+
+
+    // ToCode: to enter the exercise to be chosen with exit option
+
+ 
     
     // To enter the duration of the exercise
     printf("Enter the duration of the exercise (in min.): ");
