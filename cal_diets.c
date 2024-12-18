@@ -18,7 +18,7 @@
 
 
 // list of diets 
-static Diet diet_list[MAX_DIETS];
+static Diet diet_list[MAX_DIETS] = {0}; //add initalizing step
 static int diet_list_size = 0;
 
 
@@ -34,11 +34,36 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 
      // ToCode: to read a list of the diets from the given file
-    while () {
+    char c[MAX_FOOD_NAME_LEN]; //set string to receive data while reading file
+    
+    while ( (c, MAX_FOOD_NAME_LEN,file) != NULL ) {
+    	int i;
+    	int setter =1;
+    	
+    	for(i=0 ; i<MAX_FOOD_NAME_LEN ; i++)
+    	{
+    		if( (c[i] >= '0') && ( c[i] <='9') )
+    		{
+    			if(setter)
+    			{
+    				diet_list[diet_list_size].food_name[i] = '\0';
+    				setter = 0;
+				}
+				
+				if(diet_list[diet_list_size].calories_intake == 0) 
+				diet_list[diet_list_size].calories_intake = (c[i]-'0');
+				else //if calorie is longer than one digit
+				diet_list[diet_list_size].calories_intake = diet_list[diet_list_size].calories_intake*10 + (c[i]-'0');
+			}
+			else //if character is not a number
+			diet_list[diet_list_size].food_name[i] = c[i];
+		}
     	
         if (diet_list_size >= MAX_DIETS){
         	break;
 		}
+		
+		diet_list_size++;
     }
     fclose(file);
 }
