@@ -40,7 +40,10 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     	int setter=0; //marker for ending exercise name correctly
     	
     	for(i=0; i<MAX_EXERCISE_NAME_LEN ; i++)
-    	{		
+    	{			
+			if(c[i] == ' ')
+			continue;
+			
 			if((c[i]>='0') && (c[i]<='9')) //if charcter is number
     		{
 				if(setter) //when it's the first time, end exercise name

@@ -25,6 +25,7 @@ int main() {
     
     // Tocode: to read the list of the exercises and diets
     loadExercises(EXERCISEFILEPATH);
+    loadDiets(DIETFILEPATH);
     
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
@@ -51,7 +52,7 @@ int main() {
                 break;
                 
             case 2:
-            	
+            	inputDiet(&health_data);
                 break;
                 
             case 3:
