@@ -34,13 +34,17 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    char c[MAX_EXERCISE_NAME_LEN]; //set string data to receive data while reading file
+    printf("reading exercise text file\n");
+	char c[MAX_EXERCISE_NAME_LEN]; //set string data to receive data while reading file
 	while ( (fgets(c,MAX_EXERCISE_NAME_LEN,file) != NULL)) {
     	int i; //marker for each character in string data
     	int setter=0; //marker for ending exercise name correctly
     	
+    	
     	for(i=0; i<MAX_EXERCISE_NAME_LEN ; i++)
     	{			
+			printf("%c", c[i]);
+			
 			if(c[i] == ' ')
 			continue;
 			

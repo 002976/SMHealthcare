@@ -34,15 +34,19 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 
      // ToCode: to read a list of the diets from the given file
-    char c[MAX_FOOD_NAME_LEN];
+    printf("reading food file\n");
+	char c[MAX_FOOD_NAME_LEN];
     
     while ( (fgets(c, MAX_FOOD_NAME_LEN, file)) != NULL) {
     	int i;
     	int setter=1;
     	
+    	
     	for(i=0 ; i<MAX_FOOD_NAME_LEN;i++)
     	{
-    		if(c[i] == ' ')
+    		printf("%c", c[i]);
+			
+			if(c[i] == ' ')
     		continue;
     		
 			if((c[i]>='0') && (c[i]<='9'))
