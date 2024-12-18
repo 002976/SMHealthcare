@@ -18,7 +18,7 @@
 
 
 // To declare the structure of the exercises
-static Exercise exercise_list[MAX_EXERCISES];
+static Exercise exercise_list[MAX_EXERCISES] = {0}; //added initializing process
 int exercise_list_size = 0;
 
 
@@ -34,11 +34,36 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while ( ) {
-    	
+    char c[MAX_EXERCISE_NAME_LEN]; //set string to receive data while reading file
+    
+    while ( fgets(c, MAX_EXERCISE_NAME_LEN, file) != NULL ) {
+    	int i;
+		int setter =1;
+		
+		for(i=0; i<MAX_EXERCISE_NAME_LEN; i++)
+		{
+			if( (c[i] >='0') && (c[i] <='9')) //if character is a number
+			{
+				if(setter) //end name of exercise with '\0' to prevent issues
+				{
+					exercise_list[exercise_list_size].exercise_name[i] = '\0';
+					setter = 0;
+				}
+				
+				if( exercise_list[exercise_list_size].calories_burned_per_minute == 0)
+				exercise_list[exercise_list_size].calories_burned_per_minute = (c[i]-'0');
+				else //if calories per minute is more than one digit long
+				exercise_list[exercise_list_size].calories_burned_per_minute = exercise_list[exercise_list_size].calories_burned_per_minute*10 + (c[i]-'0');
+			}
+			else //if character is not a number
+			exercise_list[exercise_list_size].exercise_name[i] = c[i];
+		}
+		    	
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
+		
+		exercise_list_size++; //increase exercise list size to save number of exercise read
     }
 
     fclose(file);
