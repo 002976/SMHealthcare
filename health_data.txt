@@ -1,11 +1,16 @@
 [Exercises] 
-running - 330kcal
-Total calories burned: 330kcal
+running - 440kcal
+yoga - 60kcal
+pilates - 260kcal
+riding - 65kcal
+Total calories burned: 825kcal
 
 [Diets] 
 chicken - 925
-Total calories intake: 925kcal
+rice - 600
+rice - 600
+Total calories intake: 2125kcal
 
 [Total] 
 Basal metabolic rate: 1300kcal
-The remaining calories: -705kcal
+The remaining calories: 0kcal

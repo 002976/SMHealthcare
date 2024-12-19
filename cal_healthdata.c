@@ -105,8 +105,8 @@ void printHealthData(const HealthData* phealth_data) { //changed pointer name
 	}
 	else	//when user's remaining calories are negative
 	{
-		printf("Please exercise for your health!");
-		if(phealth_data->total_calories_intake == DAILYI_METABOLIC_GOAL)
+		printf("Please exercise for your health!\n");
+		if(phealth_data->total_calories_intake == DAILY_CALORIE_GOAL)
 		printf("Your total calorie intake for today has reached your goal!\n");
 		else
 		printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");
