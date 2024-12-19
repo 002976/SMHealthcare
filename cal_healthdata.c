@@ -62,8 +62,9 @@ void printHealthData(const HealthData* health_data) {
 	
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
-	
-	
+	for(i=0; i<4;i++)
+	printf("Exercise: %s, calories burned : %i kcal\n", health_data->exercises[i].exercise_name,health_data->exercises[i].calories_burned_per_minute);
+	printf("%i\n", health_data->exercise_count);
     printf("=======================================================================\n");
     
     

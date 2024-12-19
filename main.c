@@ -27,12 +27,11 @@ int main() {
     loadExercises(EXERCISEFILEPATH);
     loadDiets(DIETFILEPATH);
     
-    int count = 2;
-    
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-		count --;
+		printf("%i", health_data.exercise_count);
+		
 		if ( 0){
             printf("You have consumed all your calories for today! \n");
 		} 
@@ -72,7 +71,7 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while ( count);
+    } while ( choice != 0);
 
     return 0;
 }
