@@ -50,7 +50,7 @@ int main() {
 		// ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
             case 1:
-            	inputExercise(health_data); //name of pointer and name of struct is the same. parameters needed to run function for devices may vary.
+            	inputExercise(&health_data); //name of pointer and name of struct is the same. pointer name is edited within all functions
                 break;
                 
             case 2:

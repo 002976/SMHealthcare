@@ -86,7 +86,7 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     			3. enter the selected exercise and the total calories burned in the health data
 */
 
-void inputExercise(HealthData* health_data) {
+void inputExercise(HealthData* phealth_data) {
     int choice, duration, i;
     
     // ToCode: to provide the options for the exercises to be selected
@@ -111,12 +111,12 @@ void inputExercise(HealthData* health_data) {
     if(duration>=0)
     {
 		for(i=0; i<MAX_EXERCISE_NAME_LEN;i++)
-		health_data->exercises[health_data->exercise_count].exercise_name[i] = exercise_list[choice].exercise_name[i];
-    	health_data->exercises[health_data->exercise_count].calories_burned_per_minute = exercise_list[choice].calories_burned_per_minute*duration; //saving total calories burned through exercise as calories burned per min.
+		phealth_data->exercises[phealth_data->exercise_count].exercise_name[i] = exercise_list[choice].exercise_name[i];
+    	phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute = exercise_list[choice].calories_burned_per_minute*duration; //saving total calories burned through exercise as calories burned per min.
 		
-		health_data->exercise_count += 1;
+		phealth_data->exercise_count += 1;
     	
-    	printf("%s\n%i\n%i",health_data->exercises[health_data->exercise_count-1].exercise_name,health_data->exercises[health_data->exercise_count-1].calories_burned_per_minute,health_data->exercise_count);
+    	printf("%s\n%i\n%i",phealth_data->exercises[phealth_data->exercise_count-1].exercise_name,phealth_data->exercises[phealth_data->exercise_count-1].calories_burned_per_minute,phealth_data->exercise_count);
 	}
     
 

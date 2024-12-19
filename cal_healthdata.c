@@ -24,7 +24,7 @@
     			3. save the total remaining calrories
 */
 
-void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
+void saveData(const char* HEALTHFILEPATH, const HealthData* phealth_data) {
 	int i;
     FILE* file = fopen(HEALTHFILEPATH, "w");
     if (file == NULL) {
@@ -57,12 +57,12 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     			3. print out the saved history of calories
 */
 
-void printHealthData(const HealthData* health_data) {
+void printHealthData(const HealthData* phealth_data) {
 	int i;
 	
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
-	printf("%i\n", health_data->exercise_count);
+	printf("%i\n", phealth_data->exercise_count);
     printf("=======================================================================\n");
     
     
