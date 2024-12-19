@@ -24,7 +24,7 @@
     			3. save the total remaining calrories
 */
 
-void saveData(const char* HEALTHFILEPATH, const HealthData* phealth_data) {
+void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	int i;
     FILE* file = fopen(HEALTHFILEPATH, "w");
     if (file == NULL) {
@@ -57,36 +57,32 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* phealth_data) {
     			3. print out the saved history of calories
 */
 
-void printHealthData(const HealthData* phealth_data) {
+void printHealthData(const HealthData* health_data) {
 	int i;
 	
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
-	for(i=0; i <phealth_data->exercise_count ; i++)
-	printf("Exercise: %s, calories burned: %ikcal\n",phealth_data->exercises[i].exercise_name, phealth_data->exercises[i].calories_burned_per_minute);
-	
-	
+  
+  
     printf("=======================================================================\n");
-    
-    
+
     // ToCode: to print out the saved history of diets
     printf("============================= History of Diet =========================\n");
-    
-    
+
+
     printf("=======================================================================\n");
-    
-    
+
+
 	// ToCode: to print out the saved history of calories including basal metabolic rate, 
 	// total calories burned, total calories intake, and the remaining calories
 	printf("============================== Total Calories =========================\n");
-	
-	
-	
+ 
+ 
     printf("=======================================================================\n \n");
     
-    
+	
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake    
     
     
-	printf("=======================================================================\n");
+	 printf("=======================================================================\n");
 }
