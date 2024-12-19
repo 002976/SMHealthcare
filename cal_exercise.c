@@ -113,10 +113,9 @@ void inputExercise(HealthData* phealth_data) {
 		for(i=0; i<MAX_EXERCISE_NAME_LEN;i++)
 		phealth_data->exercises[phealth_data->exercise_count].exercise_name[i] = exercise_list[choice].exercise_name[i];
     	phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute = exercise_list[choice].calories_burned_per_minute*duration; //saving total calories burned through exercise as calories burned per min.
-		
 		phealth_data->exercise_count += 1;
     	
-    	printf("%s\n%i\n%i",phealth_data->exercises[phealth_data->exercise_count-1].exercise_name,phealth_data->exercises[phealth_data->exercise_count-1].calories_burned_per_minute,phealth_data->exercise_count);
+    	printf("%s\n%i\n%i\n",phealth_data->exercises[phealth_data->exercise_count-1].exercise_name,phealth_data->exercises[phealth_data->exercise_count-1].calories_burned_per_minute,phealth_data->exercise_count);
 	}
     
 

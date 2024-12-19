@@ -30,7 +30,7 @@ int main() {
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-		printf("%i", health_data.exercise_count);
+		printf("%i\n", health_data.exercise_count);
 		
 		if ( 0){
             printf("You have consumed all your calories for today! \n");
@@ -50,7 +50,7 @@ int main() {
 		// ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
             case 1:
-            	inputExercise(&health_data); //name of pointer and name of struct is the same. pointer name is edited within all functions
+            	inputExercise(&health_data); //name of pointer and name of struct is the same and causing issues. pointer name is edited within all functions
                 break;
                 
             case 2:
