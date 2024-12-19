@@ -28,7 +28,7 @@ static int diet_list_size = 0;
 
 void loadDiets(const char* DIETFILEPATH) {
     FILE *file = fopen(DIETFILEPATH, "r");
-    if (file == NULL) {
+    if (file == NULL) { //when file is not created properly
         printf("There is no file for diets! \n");
         return;
     }
@@ -53,7 +53,7 @@ void loadDiets(const char* DIETFILEPATH) {
     			2. enter the selected diet and the total calories intake in the health data
 */
 
-void inputDiet(HealthData* phealth_data) { //changing pointer name
+void inputDiet(HealthData* phealth_data) { //changed pointer name
     int choice, i;
     
     // ToCode: to provide the options for the diets to be selected
@@ -70,15 +70,15 @@ void inputDiet(HealthData* phealth_data) { //changing pointer name
 
     // ToCode: to enter the selected diet in the health data
     // ToCode: to enter the total calories intake in the health data
-    if(choice>=0 && choice<=diet_list_size)
+    if(choice>=0 && choice<=diet_list_size) //the logic of process is same as to cal_exercise.c
     {
-    	strcpy(phealth_data->diet[phealth_data->diet_count].food_name, diet_list[choice].food_name);
-    	phealth_data->diet[phealth_data->diet_count].calories_intake = diet_list[choice].calories_intake;
-    	phealth_data->total_calories_intake += diet_list[choice].calories_intake;
-    	phealth_data->diet_count++;
+    	strcpy(phealth_data->diet[phealth_data->diet_count].food_name, diet_list[choice].food_name); //saving food name 
+    	phealth_data->diet[phealth_data->diet_count].calories_intake = diet_list[choice].calories_intake; //saving calories consumed through food
+    	phealth_data->total_calories_intake += diet_list[choice].calories_intake; //updating total calories consumed
+    	phealth_data->diet_count++; //adding couint after utilizing during saving process
 	}
 	else
-	printf("Exiting. Returning to main screen.\n");
+	printf("Exiting. Returning to main screen.\n"); //when user's choice is not within bound
 	
 }
 

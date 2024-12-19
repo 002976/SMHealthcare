@@ -27,7 +27,7 @@
 void saveData(const char* HEALTHFILEPATH, const HealthData* phealth_data) {
 	int i;
     FILE* file = fopen(HEALTHFILEPATH, "w");
-    if (file == NULL) {
+    if (file == NULL) { //when file is not created properly
         printf("There is no file for health data.\n");
         return;
     }
@@ -51,7 +51,7 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* phealth_data) {
     fprintf(file, "\n[Total] \n");
     fprintf(file, "Basal metabolic rate: %ikcal\nThe remaining calories: %ikcal\n", BASAL_METABOLIC_RATE, phealth_data->total_calories_intake-BASAL_METABOLIC_RATE-phealth_data->total_calories_burned);
     
-    fclose(file); //closing file in case of saving issues
+    fclose(file); //closing file in case of issues
 }
 
 /*
@@ -64,7 +64,7 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* phealth_data) {
     			3. print out the saved history of calories
 */
 
-void printHealthData(const HealthData* phealth_data) {
+void printHealthData(const HealthData* phealth_data) { //changed pointer name
 	int i;
 	
 	// ToCode: to print out the saved history of exercises
@@ -87,12 +87,12 @@ void printHealthData(const HealthData* phealth_data) {
 	printf("Basal Metabolic Rate: %i\n", BASAL_METABOLIC_RATE);
 	printf("Total calories burned: %i\n", phealth_data->total_calories_burned);
 	printf("Total calories intake: %i\n", phealth_data->total_calories_intake);
-	printf("The remain calories: %i\n", phealth_data->total_calories_intake- BASAL_METABOLIC_RATE - phealth_data->total_calories_burned);
+	printf("Remaining calories: %i\n", phealth_data->total_calories_intake- BASAL_METABOLIC_RATE - phealth_data->total_calories_burned);
     printf("=======================================================================\n \n");
     
     
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake    
-    if( (phealth_data->total_calories_intake-BASAL_METABOLIC_RATE-phealth_data->total_calories_burned) < 0 )
+    if( (phealth_data->total_calories_intake-BASAL_METABOLIC_RATE-phealth_data->total_calories_burned) < 0 ) //when user had too much remaining calories
     {
     	printf("[Warning] Too few calories!\n");
     	
@@ -103,7 +103,7 @@ void printHealthData(const HealthData* phealth_data) {
 		else
 		printf("You have eaten more calories than planned today, but you have exercised too much!\n");
 	}
-	else
+	else	//when user's remaining calories are negative
 	{
 		printf("Please exercise for your health!");
 		if(phealth_data->total_calories_intake == DAILYI_METABOLIC_GOAL)

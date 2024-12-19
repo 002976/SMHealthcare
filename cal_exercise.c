@@ -28,7 +28,7 @@ int exercise_list_size = 0;
 
 void loadExercises(const char* EXERCISEFILEPATH) {
     FILE *file = fopen(EXERCISEFILEPATH, "r");
-    if (file == NULL) {
+    if (file == NULL) { //when file is not created properly
         printf("There is no file for exercises! \n");
         return;
     }
@@ -56,7 +56,7 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     			3. enter the selected exercise and the total calories burned in the health data
 */
 
-void inputExercise(HealthData* phealth_data) { //changing pointer name to strucutre data and pointer being under same name
+void inputExercise(HealthData* phealth_data) { //changed pointer name because strucutre data and pointer are under same name
     int choice, duration, i;
     
     // ToCode: to provide the options for the exercises to be selected
@@ -79,16 +79,16 @@ void inputExercise(HealthData* phealth_data) { //changing pointer name to strucu
     	choice--; //adjusting number for easier calculation
 	}
 	else
-	printf("Exiting. Returning to main screen\n");
+	printf("Exiting. Returning to main screen\n"); //when user's choice is not within bound
 
     
     // ToCode: to enter the selected exercise and total calcories burned in the health data
-    if(duration>=0)
+    if(duration>=0) //adding if statement so that the saving process starts when user intended to save relevant data
     {
-    	strcpy(phealth_data->exercises[phealth_data->exercise_count].exercise_name, exercise_list[choice].exercise_name);
-    	phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute = exercise_list[choice].calories_burned_per_minute*duration;
-    	phealth_data->total_calories_burned += phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute;
-		phealth_data->exercise_count++;
+    	strcpy(phealth_data->exercises[phealth_data->exercise_count].exercise_name, exercise_list[choice].exercise_name); //saving name of exercise
+    	phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute = exercise_list[choice].calories_burned_per_minute*duration; //saving total calories burned with exercise instead of calories per minute
+    	phealth_data->total_calories_burned += phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute; //adding calories burnt with current exercise as total exercise burnt
+		phealth_data->exercise_count++; //increasing count after utilizing it when saving data
 	}
 	
 }
