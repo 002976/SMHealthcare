@@ -66,12 +66,19 @@ void inputDiet(HealthData* phealth_data) { //changing pointer name
     printf("%i. Exit\n", diet_list_size+1);
     printf("Choose (1-%i): \n", diet_list_size+1);
     scanf("%i", &choice);
+    choice--;
 
     // ToCode: to enter the selected diet in the health data
-    
-
     // ToCode: to enter the total calories intake in the health data
-
-
+    if(choice<=0 && choice>=diet_list_size)
+    {
+    	strcpy(phealth_data->diet[phealth_data->diet_count].food_name, diet_list[choice].food_name);
+    	phealth_data->diet[phealth_data->diet_count].calories_intake = diet_list[choice].calories_intake;
+    	phealth_data->total_calories_intake += diet_list[choice].calories_intake;
+    	phealth_data->diet_count++;
+	}
+	else
+	printf("Exiting. Returning to main screen.\n");
+	
 }
 
