@@ -67,17 +67,16 @@ void printHealthData(const HealthData* phealth_data) {
 	printf("=========================== History of Exercise =======================\n");
 	for(i=0; i<phealth_data->exercise_count; i++)
 	printf("Exercise: %s, calories burned: %i\n", phealth_data->exercises[i].exercise_name, phealth_data->exercises[i].calories_burned_per_minute);
-  
-  
     printf("=======================================================================\n");
-
+    
+    
     // ToCode: to print out the saved history of diets
     printf("============================= History of Diet =========================\n");
-
-
+    for(i=0;i<phealth_data->diet_count;i++)
+    printf("Food: %s, calories intake: %ikcal\n", phealth_data->diet[i].food_name, phealth_data->diet[i].calories_intake);
     printf("=======================================================================\n");
-
-
+    
+    
 	// ToCode: to print out the saved history of calories including basal metabolic rate, 
 	// total calories burned, total calories intake, and the remaining calories
 	printf("============================== Total Calories =========================\n");
@@ -85,10 +84,9 @@ void printHealthData(const HealthData* phealth_data) {
 	printf("Total calories burned: %i\n", phealth_data->total_calories_burned);
 	printf("Total calories intake: %i\n", phealth_data->total_calories_intake);
 	printf("The remain calories: %i\n", phealth_data->total_calories_intake- BASAL_METABOLIC_RATE - phealth_data->total_calories_burned);
- 
     printf("=======================================================================\n \n");
     
-	
+    
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake    
     
     
