@@ -18,7 +18,7 @@
 
 
 // To declare the structure of the exercises
-static Exercise exercise_list[MAX_EXERCISES];
+static Exercise exercise_list[MAX_EXERCISES] = {0}; //adding initialization process
 int exercise_list_size = 0;
 
 
@@ -34,8 +34,9 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while ( ) {
-    	
+	while ( fscanf(file, "%s %d", &exercise_list[exercise_list_size].exercise_name, &exercise_list[exercise_list_size].calories_burned_per_minute) != EOF) {
+		exercise_list_size++;
+		
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
@@ -55,22 +56,38 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     			3. enter the selected exercise and the total calories burned in the health data
 */
 
-void inputExercise(HealthData* health_data) {
+void inputExercise(HealthData* phealth_data) { //changing pointer name to strucutre data and pointer being under same name
     int choice, duration, i;
     
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
-
-
+    for(i=0;i<exercise_list_size;i++)
+    printf("%i. %s (%i kcal burned per min.)\n", i+1, exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
+    
+    
     // ToCode: to enter the exercise to be chosen with exit option
-
- 
+    printf("%i. Exit\n", exercise_list_size+1);
+    scanf("%i", &choice);
+    
     
     // To enter the duration of the exercise
-    printf("Enter the duration of the exercise (in min.): ");
-    scanf("%d", &duration);
-
-    // ToCode: to enter the selected exercise and total calcories burned in the health data
+    if(choice>0 && choice<=(exercise_list_size+1) )
+    {
+    	printf("Enter the duration of the exericse (in min.): ");
+    	scanf("%d", &duration);
+    	choice--; //adjusting number for easier calculation
+	}
     
-
+    // ToCode: to enter the selected exercise and total calcories burned in the health data
+    if(duration>=0)
+    {
+    	strcpy(phealth_data->exercises[phealth_data->exercise_count].exercise_name, exercise_list[choice].exercise_name);
+    	phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute = exercise_list[choice].calories_burned_per_minute*duration;
+    	phealth_data->total_calories_burned += phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute;
+		phealth_data->exercise_count++;
+    	
+	}
+	else
+	printf("Returning to main screen");
+	
 }

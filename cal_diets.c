@@ -34,7 +34,7 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 
      // ToCode: to read a list of the diets from the given file
-    while () {
+    while (0) {
     	
         if (diet_list_size >= MAX_DIETS){
         	break;
@@ -52,7 +52,7 @@ void loadDiets(const char* DIETFILEPATH) {
     			2. enter the selected diet and the total calories intake in the health data
 */
 
-void inputDiet(HealthData* health_data) {
+void inputDiet(HealthData* phealth_data) { //changing pointer name
     int choice, i;
     
     // ToCode: to provide the options for the diets to be selected
