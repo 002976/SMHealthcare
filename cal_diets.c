@@ -70,7 +70,7 @@ void inputDiet(HealthData* phealth_data) { //changing pointer name
 
     // ToCode: to enter the selected diet in the health data
     // ToCode: to enter the total calories intake in the health data
-    if(choice<=0 && choice>=diet_list_size)
+    if(choice>=0 && choice<=diet_list_size)
     {
     	strcpy(phealth_data->diet[phealth_data->diet_count].food_name, diet_list[choice].food_name);
     	phealth_data->diet[phealth_data->diet_count].calories_intake = diet_list[choice].calories_intake;

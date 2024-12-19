@@ -60,7 +60,6 @@ int main() {
                 break;
                 
             case 4:
-            	
     			printf("Exit the system.\n");
     			printf("=======================================================================\n");
                 break;

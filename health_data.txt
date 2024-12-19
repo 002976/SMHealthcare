@@ -1,7 +1,11 @@
 [Exercises] 
-walking - 200kcal
-Total calories burned: 200kcal
+riding - 300kcal
+Total calories burned: 300kcal
 
 [Diets] 
+chicken - 925
+Total calories intake: 925kcal
 
 [Total] 
+Basal metabolic rate: 1300kcal
+The remaining calories: -675kcal

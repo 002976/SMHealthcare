@@ -41,13 +41,17 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* phealth_data) {
     
     // ToCode: to save the chosen diet and total calories intake 
     fprintf(file, "\n[Diets] \n");
+    for(i=0;i<phealth_data->diet_count;i++)
+    fprintf(file, "%s - %i\n", phealth_data->diet[i].food_name, phealth_data->diet[i].calories_intake);
+    fprintf(file, "Total calories intake: %ikcal\n", phealth_data->total_calories_intake);
 
 
 
     // ToCode: to save the total remaining calrories
     fprintf(file, "\n[Total] \n");
+    fprintf(file, "Basal metabolic rate: %ikcal\nThe remaining calories: %ikcal\n", BASAL_METABOLIC_RATE, phealth_data->total_calories_intake-BASAL_METABOLIC_RATE-phealth_data->total_calories_burned);
     
-    
+    fclose(file); //closing file in case of saving issues
 }
 
 /*
@@ -72,7 +76,7 @@ void printHealthData(const HealthData* phealth_data) {
     
     // ToCode: to print out the saved history of diets
     printf("============================= History of Diet =========================\n");
-    for(i=0;i<phealth_data->diet_count;i++)
+    for(i=0; i<phealth_data->diet_count; i++)
     printf("Food: %s, calories intake: %ikcal\n", phealth_data->diet[i].food_name, phealth_data->diet[i].calories_intake);
     printf("=======================================================================\n");
     
