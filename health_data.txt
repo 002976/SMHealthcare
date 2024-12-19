@@ -1,6 +1,6 @@
 [Exercises] 
-riding - 300kcal
-Total calories burned: 300kcal
+running - 330kcal
+Total calories burned: 330kcal
 
 [Diets] 
 chicken - 925
@@ -8,4 +8,4 @@ Total calories intake: 925kcal
 
 [Total] 
 Basal metabolic rate: 1300kcal
-The remaining calories: -675kcal
+The remaining calories: -705kcal

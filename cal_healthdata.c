@@ -92,7 +92,24 @@ void printHealthData(const HealthData* phealth_data) {
     
     
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake    
-    
-    
+    if( (phealth_data->total_calories_intake-BASAL_METABOLIC_RATE-phealth_data->total_calories_burned) < 0 )
+    {
+    	printf("[Warning] Too few calories!\n");
+    	
+		if( phealth_data->total_calories_intake == DAILY_CALORIE_GOAL)
+		printf("Your total calorie intake for today has reached your goal!\n");
+		else if(phealth_data->total_calories_intake < DAILY_CALORIE_GOAL)
+		printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");
+		else
+		printf("You have eaten more calories than planned today, but you have exercised too much!\n");
+	}
+	else
+	{
+		printf("Please exercise for your health!");
+		if(phealth_data->total_calories_intake == DAILYI_METABOLIC_GOAL)
+		printf("Your total calorie intake for today has reached your goal!\n");
+		else
+		printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");
+	}
 	 printf("=======================================================================\n");
 }
