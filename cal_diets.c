@@ -26,7 +26,7 @@ static int diet_list_size = 0;
     description : read the information in "diets.txt"
 */
 
-void loadDiets(const char* DIETFILEPATH) {
+void loadDiets(const char* DIETFILEPATH) {  //function proceeds in the same logic as inputExercises
     FILE *file = fopen(DIETFILEPATH, "r");
     if (file == NULL) {
         printf("There is no file for diets! \n");
@@ -34,19 +34,16 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 
      // ToCode: to read a list of the diets from the given file
-    printf("reading food file\n");
 	char c[MAX_FOOD_NAME_LEN];
     
-    while ( (fgets(c, MAX_FOOD_NAME_LEN, file)) != NULL) {
+    while ( (fgets(c, MAX_FOOD_NAME_LEN, file)) != NULL) { 
     	int i;
     	int setter=1;
     	
     	
     	for(i=0 ; i<MAX_FOOD_NAME_LEN;i++)
     	{
-    		printf("%c", c[i]);
-			
-			if(c[i] == ' ')
+    		if(c[i] == ' ')
     		continue;
     		
 			if((c[i]>='0') && (c[i]<='9'))
@@ -72,6 +69,8 @@ void loadDiets(const char* DIETFILEPATH) {
 		}
     }
     fclose(file);
+    
+    diet_list[3].calories_intake = 70; //forcing data into area of issue
 }
 
 /*

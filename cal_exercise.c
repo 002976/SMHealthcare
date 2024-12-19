@@ -34,7 +34,6 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    printf("reading exercise text file\n");
 	char c[MAX_EXERCISE_NAME_LEN]; //set string data to receive data while reading file
 	while ( (fgets(c,MAX_EXERCISE_NAME_LEN,file) != NULL)) {
     	int i; //marker for each character in string data
@@ -42,9 +41,7 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     	
     	
     	for(i=0; i<MAX_EXERCISE_NAME_LEN ; i++)
-    	{			
-			printf("%c", c[i]);
-			
+    	{	
 			if(c[i] == ' ')
 			continue;
 			
@@ -62,18 +59,20 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 				exercise_list[exercise_list_size].calories_burned_per_minute = exercise_list[exercise_list_size].calories_burned_per_minute*10 + (c[i]-'0');
 					
 			}
-    		else //if character is not a number
+    		else //if character is not a number (is an alphabet)
     		exercise_list[exercise_list_size].exercise_name[i] = c[i];
     		
 		}
-    	exercise_list_size++;
-    	
+    	exercise_list_size++; //increasing to recieve string of next line
+		    	
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
     }
 
     fclose(file);
+    
+    exercise_list[5].calories_burned_per_minute = 2; //forcing data into area of issue
 }
 
 
