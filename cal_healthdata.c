@@ -34,6 +34,9 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* phealth_data) {
 
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
+	for(i=0; i<phealth_data->exercise_count;i++)
+    fprintf(file, "%s - %ikcal\n", phealth_data->exercises[i].exercise_name, phealth_data->exercises[i].calories_burned_per_minute);
+	fprintf(file, "Total calories burned: %ikcal\n", phealth_data->total_calories_burned);
     
     
     // ToCode: to save the chosen diet and total calories intake 
@@ -78,7 +81,10 @@ void printHealthData(const HealthData* phealth_data) {
 	// ToCode: to print out the saved history of calories including basal metabolic rate, 
 	// total calories burned, total calories intake, and the remaining calories
 	printf("============================== Total Calories =========================\n");
- 
+	printf("Basal Metabolic Rate: %i\n", BASAL_METABOLIC_RATE);
+	printf("Total calories burned: %i\n", phealth_data->total_calories_burned);
+	printf("Total calories intake: %i\n", phealth_data->total_calories_intake);
+	printf("The remain calories: %i\n", phealth_data->total_calories_intake- BASAL_METABOLIC_RATE - phealth_data->total_calories_burned);
  
     printf("=======================================================================\n \n");
     

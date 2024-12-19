@@ -85,7 +85,6 @@ void inputExercise(HealthData* phealth_data) { //changing pointer name to strucu
     	phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute = exercise_list[choice].calories_burned_per_minute*duration;
     	phealth_data->total_calories_burned += phealth_data->exercises[phealth_data->exercise_count].calories_burned_per_minute;
 		phealth_data->exercise_count++;
-    	
 	}
 	else
 	printf("Returning to main screen");

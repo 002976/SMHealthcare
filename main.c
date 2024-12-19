@@ -69,6 +69,8 @@ int main() {
                 printf("Please try again! \n");
         }
     } while ( choice != 4);
+    
+    saveData(HEALTHFILEPATH, &health_data);
 
     return 0;
 }
