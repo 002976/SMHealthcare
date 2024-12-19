@@ -62,27 +62,29 @@ void printHealthData(const HealthData* health_data) {
 	
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
-  
-  
+	
+	
     printf("=======================================================================\n");
-
+    
+    
     // ToCode: to print out the saved history of diets
     printf("============================= History of Diet =========================\n");
-
-
+    
+    
     printf("=======================================================================\n");
-
-
+    
+    
 	// ToCode: to print out the saved history of calories including basal metabolic rate, 
 	// total calories burned, total calories intake, and the remaining calories
 	printf("============================== Total Calories =========================\n");
- 
- 
+	
+	
+	
     printf("=======================================================================\n \n");
     
-	
+    
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake    
     
     
-	 printf("=======================================================================\n");
+	printf("=======================================================================\n");
 }
