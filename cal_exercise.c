@@ -35,9 +35,9 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 
     // ToCode: to read a list of the exercises from the given file
 	while ( fscanf(file, "%s %i", &exercise_list[exercise_list_size].exercise_name, &exercise_list[exercise_list_size].calories_burned_per_minute) != EOF) {
-		exercise_list_size++;
+		exercise_list_size++; //reading txt file and saving through formatting. increase list size for later funcations
 		
-        if (exercise_list_size >= MAX_EXERCISES){
+        if (exercise_list_size >= MAX_EXERCISES){ //if txt file is too long, program reads upto its maximum capacity
         	break;
 		}
     }
@@ -61,24 +61,24 @@ void inputExercise(HealthData* phealth_data) { //changed pointer name because st
     
     // ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
-    for(i=0;i<exercise_list_size;i++)
+    for(i=0;i<exercise_list_size;i++) //listing exercise name with for statement
     printf("%i. %s (%i kcal burned per min.)\n", i+1, exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
     
     
     // ToCode: to enter the exercise to be chosen with exit option
-    printf("%i. Exit\n", exercise_list_size+1);
+    printf("%i. Exit\n", exercise_list_size+1); //proving exit choice
     printf("Choose (1-%i): ",exercise_list_size+1);
-    scanf("%i", &choice);
+    scanf("%i", &choice); //receiving choice
     
     
     // To enter the duration of the exercise
-    if(choice>0 && choice<=(exercise_list_size) )
+    if(choice>0 && choice<=(exercise_list_size) ) //if choice is within exercise selction
     {
-    	printf("Enter the duration of the exericse (in min.): ");
+    	printf("Enter the duration of the exericse (in min.): "); //receiving details of exercise
     	scanf("%d", &duration);
-    	choice--; //adjusting number for easier calculation
+    	choice--; //adjusting number for easier calculation because list started from 1
 	}
-	else
+	else //if choice is beyong exercise selection
 	printf("Exiting. Returning to main screen\n"); //when user's choice is not within bound
 
     
